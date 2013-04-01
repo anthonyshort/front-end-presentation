@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>nib Front-end</title>
+		<meta name="description" content="nib Front-end">
+		<meta name="author" content="Anthony Short">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+						# Front-end Awesomeness
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# We freakin' love the front-end
+						We're Anthony Short and Chris Buttery.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+# The front-end is !important
+* Design perfection
+* Faster page loads
+* Quicker turn-around
+* Better for SEO (*yuck*)
+* Better for accessibility
+* Better UI interactions
+* Cooler stuff
+					</script>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# To be a FED...
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Design knowledge 
+							Typography, grids, rhythm, pattern and balance
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Programming knowledge 
+							Object-oriented code, event-driven, asyncronous UI
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Today
+							* Overview of the structure
+							* JavaScript best-practices
+							* Sass/CSS best-practices
+						</script>
+					</section>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Why We've Done It
+						* More maintainable code
+						* Leverage new technologies
+						* Scaleable architecture
+						* Consistent Quality
+						* Confidence to make changes
+						* Decoupled but dependent components
+						* Ability to adapt and use new stuff
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# How we've done it
+						* Component-based architecture
+						* JavaScript CommonJS Modules
+						* Object-oriented Sass
+						* Best-practices
+						* Package management
+						* Build tools (Grunt)
+					</script>
+				</section>
+        <section>
+          <section>
+            <h1>Component-based Architecture</h1>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # Small, self-contained packages
+              HTML, CSS , JS, images, fonts, templates.
+            </script>
+          </section>
+  				<section data-markdown>
+  					<script type="text/template">
+  # What is a component?
+  * Package of functionality (dialog, accordion etc)
+  * Contains JS, Sass, HTML, images (anything, really)
+  * Has dependencies on other components
+  * Has a unique name
+  * Has a version
+  * Has a component.json file
+  					</script>
+  				</section>
+          <section>
+            <h2>component.json</h2>
+            <pre>
+  {
+    "name": "dialog",
+    "version": "0.0.3",
+    "description": "Create dialogs with static content or via AJAX",
+    "scripts": [
+      "index.js",
+      "template.js"
+    ],
+    "dependencies": {
+      "nib-components/overlay": "0.0.2",
+      "nib-components/utils": "0.0.1"
+    }
+  }
+            </pre>
+          </section>
+          <section>
+            <img src="images/allthethings.jpg" height="500"/>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # JS Structure
+              * `component.json`
+              * `package.json`
+              * `Gruntfile.js`
+              * `index.js`
+              * `/components`
+              * `/local`
+              * `/test`
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # Sass Structure
+              * `component.json`
+              * `package.json`
+              * `Gruntfile.js`
+              * `index.scss`
+              * `/components`
+              * `/local`
+              * `/styleguide`
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # In Practice
+              There are multiple nib sites.
+
+                * Content 
+                * Quote
+                * Auth
+                * Plus more in the future
+            </script>
+          </section>
+        </section>
+				
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              # Component(1)
+              A CommonJS builder and <br/> package manager **for the browser**
+            </script>
+          </section>
+          <section>
+            <pre><code>
+  {
+    "name": "app",
+    "scripts": ["index.js", "lib/foo.js"],
+    "dependencies": {
+      "nib-components/dialog": "0.0.4",
+      "nib-components/utils": "0.0.1"
+    }
+  }
+            </code></pre>
+            <pre><code>
+  var dialog = require('dialog');
+  var utils = require('utils');
+  var foo = require('./lib/foo');
+  dialog.create();
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+  $ component install
+            </code></pre>
+            <pre><code>
+  $ component install component/emitter
+            </code></pre>
+            <pre><code>
+  $ component search dialog
+            </code></pre>
+            <pre><code>
+  $ component build
+            </code></pre>
+          </section>
+          <section>
+            <h1>nib Components</h1>
+            <p>http://ntlvmbld01:4567/packages/</p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # Currently
+              * 25+ JavaScript components
+              * 20+ Sass components
+              * Plus 800+ public components via Github
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # Local Components
+
+                  {
+                    "name": "app",
+                    "scripts": ["index.js", "lib/foo.js"],
+                    "paths": ["local"],
+                    "local": [
+                      "research-and-select"
+                    ],
+                    "dependencies": {
+                      "nib-components/dialog": "0.0.4",
+                      "nib-components/utils": "0.0.1"
+                    }
+                  }
+
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # The Life of a Component
+              Local components graduate to remote components
+            </script>
+          </section>
+        </section>
+			
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# JavaScript
+						</script>
+					</section>
+	        <section>
+	          <h1>jQuery is fat and ugly</h1>
+	          <p>We're moving away from jQuery and moving
+	          	towards modular, tested code we control.</p>
+	        </section>
+          <section>
+            <h1>CommonJS Modules</h1>
+            <p>The same module system as Node.JS</p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+robot.js
+
+    module.exports = function (s) { 
+      return s.toUpperCase() + '!' 
+    };
+
+beep.js
+
+    var robot = require('./robot');
+    robot('beep');
+
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              # Why?
+              * Each file is self-contained. No globals.
+              * Each module exports something
+              * Modules can `require` what other modules `export`
+              * This leads to smaller files and modular code!
+              * This is becoming a part of JavaScript in ES6
+            </script>
+          </section>
+          <section>
+            <h1>Idiomatic JS</h1>
+            <p>https://github.com/rwldrn/idiomatic.js/</p>
+          </section>
+          <section>
+            <h1>JSHint</h1>
+            <p>Cross-browser, fast and consistent code</p>
+          </section>
+          <section>
+            <h1>We have rules</h1>
+            <ul>
+              <li>Never use a jQuery plugin</li>
+              <li>Always ===</li>
+              <li>Multiple `var`</li>
+              <li>2 spaces</li>
+              <li>Constructors are capital-case</li>
+              <li>Variables are camel-case</li>
+              <li>Prefer constructors</li>
+              <li>Always target `.js-` classes</li>
+              <li>Views never touch outside their scope</li>
+              <li>Modules export a function</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Function Declarations (Constructors)</h3>
+            <pre><code>
+  function Accordion(options) {
+    this.el = options.el;
+  }
+            </code></pre>
+            <br/>
+            <h3>Function Expression</h3>
+            <pre><code>
+  var doSomething = function(val) {
+    return val * 10;
+  };
+            </code></pre>
+          </section>
+          <section>
+            <h1>Backbone.js</h1>
+            <p>Views, Collections, Models, Event-Driven</p>
+            <pre><code>
+  function MyView(options) {
+    this.el = options.el;
+  }
+
+  Emitter(MyView.prototype);
+
+  MyView.prototype.dispose = function(){
+    this.emit('destroy');
+  };
+
+  module.exports = MyView;
+            </code></pre>
+          </section>
+          <section>
+            <h1>Events</h1>
+            <pre><code>
+  var MyView = require('my-view');
+  var view = new MyView({ el: document.querySelector('.foo') });
+
+  view.on('destroy', function(){
+    console.log('OMG!')
+  });
+
+  view.dispose();
+            </code></pre>
+          </section>
+          <section>
+            <h1>Selecting Elements</h1>
+            <pre><code>
+  var el = document.querySelector('a');
+  var els = document.querySelectorAll('a');
+            </code></pre>
+            <pre><code>
+  var s = el.querySelector('span');
+            </code></pre>
+            <pre><code>
+  var els = document.querySelectorAll('h1');
+  els = Array.prototype.slice.call(els);
+  els.forEach(function(el){
+    console.log(el);
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h1>Promises</h1>
+            <pre><code>
+  var Promise = require('promise');
+  var promise = new Promise();
+  var another = new Promise();
+
+  promise.done(function(val){
+    console.log(val);
+  });
+
+  promise.resolve('Hello World');
+
+  // Order doesn't matter
+  another.reject();
+
+  another.fail(function(){
+    console.log('HERFA DERF!');
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h1>Promises</h1>
+            <pre><code>
+  getAjax('/posts/1.json').then(function(post){
+    console.log('Totes gots the data!');
+    return getComments(post);
+  }).then(function(comments){
+    var commentsSection = new List(comments);
+    commentsSection.render();
+  }).then(null, function(err){
+    throw new Error("Couldnt get the comments!");
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h1>Context</h1>
+            <pre><code>
+  var foo = {
+    bar: function(){
+      console.log(this);
+      var inner = function(){
+        console.log(this);
+      };
+      inner();
+    }
+  };
+
+  foo.bar();
+            </code></pre>
+          </section>
+          <section>
+            <h1>Context</h1>
+            <pre><code>
+  function Accordion(){
+    console.log(this);
+  };
+
+  Accordion.prototype.foo = function(){
+    console.log(this);
+    var inner = function(){
+      console.log(this);
+    };
+    inner();
+  };
+
+  var a = new Accordion();
+  a.foo();
+            </code></pre>
+          </section>
+          <section>
+            <h1>Context</h1>
+            <pre><code>
+  document.querySelector('a').addEventListener('click', function(){
+    console.log(this);
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h1>bind</h1>
+            <pre><code>
+  var foo = {}
+
+  var callback = function(el){ 
+    console.log(this === foo); 
+  };
+
+  $('body').on('click', callback.bind(foo));
+            </code></pre>
+          </section>
+          <section>
+            <h1>call</h1>
+            <pre><code>
+  
+  var foo = {};
+
+  var callback = function(val, val2){ 
+    console.log(val, val2); 
+    console.log(this === foo);
+  };
+
+  callback('Hello', 'World');
+  callback.call(foo, 'Hello', 'World');
+            </code></pre>
+          </section>
+          <section>
+            <h1>apply</h1>
+            <pre><code>
+  var foo = {};
+
+  var callback = function(val, val2){ 
+    console.log(val, val2); 
+    console.log(this === foo);
+  };
+
+  var bar = function(){
+    callback.apply(foo, arguments);
+  };
+
+  bar('Hello', 'World');
+
+  var salutation = bar.bind(null, 'Hello');
+  salutation("Batman");  
+  
+            </code></pre>
+          </section>
+          <section>
+            <h1>Call Stack</h1>
+            <pre><code>
+  (function(){
+    for(var i = 0; i < 10; i++) {
+      setTimeout(function(){
+        console.log(i);
+      }, 0);
+    }
+  })();
+            </code></pre>
+            <pre><code>
+  setTimeout(function(){
+    $(el).addClass('fadeIn');  
+  }, 0);
+            </code></pre>
+          </section>
+          <section>
+            <h1>Testing</h1>
+            <p>BDD with Mocha.js</p>
+            <p>Integration testing with CasperJS</p>
+            <p>Assertions with Chai.js</p>
+          </section>
+          <section>
+            <pre><code>
+  describe('Bundle View', function(){
+
+    beforeEach(function(){
+      this.view = new View();
+    });
+
+    afterEach(function(){
+      this.view.destroy();
+    });
+
+    it('should do something', function(){
+      chai.expect(this.view.name).to.equal('Foo');
+    });
+
+  });
+            </code></pre>
+          </section>
+          <section>
+            <h1>Shims</h1>
+            <p>Bringing all browsers to ES5</p>
+            <ul>
+              <li>Function.prototype.bind</li>
+              <li>Array extras (map, filter, some, etc)</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Libraries</h1>
+            <p>Global dependencies</p>
+            <ul>
+              <li>jQuery 1.9+</li>
+              <li>Underscore 1.4+</li>
+              <li>Backbone 1.0+</li>
+              <li>Moment</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Books</h1>
+            <ul>
+              <li>JavaScript: The Good Parts</li>
+              <li>JavaScript Application Architecture</li>
+            </ul>
+          </section>
+     		</section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              # Grunt
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              # Common Components
+              * Dialog
+              * Analytics
+              * Accordion
+              * Form Validator
+              * Observable/Emitter
+              * Waypoints
+            </script>
+          </section>
+        </section>
+
+				<!-- START COMPONENT -->
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Front-end Package Management
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							# Scenario
+							We want to use the dialog component with an overlay and
+							it should pull in content from a URL
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Dependencies
+							Add a dependency to your `component.json` to pull it in:
+
+							 	{
+							 		"dependencies": {
+							 			"nib-components/dialog": "0.1.0"
+							 		}
+							 	}
+
+							Now just run `component install` to pull in all the dependencies.
+							Notice how we&rsquo;ve chosen a specific version.
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Use it
+
+							 	var Dialog = require('dialog');
+
+							 	Dialog.create({
+							 		url: 'http://google.com',
+							 		closable: true
+							 	});
+
+							 Now go and have a coffee. You're done for the day.
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Why not use a jQuery plugin?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							* Extremely difficult to test
+							* Badly written code
+							* Tied extremely heavily to the DOM 
+							* Require global variables
+							* Extremely inflexible
+							* They require jQuery...
+							* No dependency management
+						</script>
+					</section>
+				</section>
+				<!-- END COMPONENT -->
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
